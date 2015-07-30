@@ -1,6 +1,6 @@
 {
   "name": "pixel-to-css-color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "convert a pixel ndarray to a css color string",
   "main": "index.js",
   "scripts": {
