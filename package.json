@@ -1,0 +1,37 @@
+{
+  "name": "pixel-to-css-color",
+  "version": "1.0.0",
+  "description": "convert a pixel ndarray to a css color string",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahdinosaur/pixel-to-css-color.git"
+  },
+  "keywords": [
+    "color",
+    "css",
+    "hsl",
+    "hsla",
+    "keyword",
+    "ndpixels",
+    "pixel",
+    "rgb",
+    "rgba"
+  ],
+  "author": "ahdinosaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahdinosaur/pixel-to-css-color/issues"
+  },
+  "homepage": "https://github.com/ahdinosaur/pixel-to-css-color#readme",
+  "devDependencies": {
+    "ndarray": "^1.0.18",
+    "tape": "^4.0.1"
+  },
+  "dependencies": {
+    "generate-function": "^2.0.0"
+  }
+}
