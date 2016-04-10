@@ -1,30 +1,36 @@
 var css = require('./');
 var test = require('tape');
-var nd = require('ndarray')
+var  nd= require('ndarray')
+
+function px (format, data) {
+  var arr = nd(data)
+  arr.format = format
+  return arr
+}
 
 test('rgb', function(t) {
   t.equal(
-    css.rgba(nd([0, 0, 0, 1])),
+    css(px('rgba', [0, 0, 0, 1])),
     'rgba(0, 0, 0, 1)'
   );
 
   t.equal(
-    css.rgba(nd([255, 0, 0, 1])),
+    css(px('rgba', [255, 0, 0, 1])),
     'rgba(255, 0, 0, 1)'
   );
 
   t.equal(
-    css.rgba(nd([0, 255, 0, 1])),
+    css(px('rgba', [0, 255, 0, 1])),
     'rgba(0, 255, 0, 1)'
   );
 
   t.equal(
-    css.rgba(nd([0, 0, 255, 1])),
+    css(px('rgba', [0, 0, 255, 1])),
     'rgba(0, 0, 255, 1)'
   );
 
   t.equal(
-    css.rgb(nd([0, 0, 255, 1])),
+    css(px('rgb', [0, 0, 255, 1])),
     'rgb(0, 0, 255)'
   );
 
@@ -33,12 +39,12 @@ test('rgb', function(t) {
 
 test('hsl', function(t) {
   t.equal(
-    css.hsl(nd([0, 100, 50, 1])),
+    css(px('hsl', [0, 100, 50, 1])),
     'hsl(0, 100%, 50%)'
   );
 
   t.equal(
-    css.hsla(nd([0, 75, 25, 1])),
+    css(px('hsla', [0, 75, 25, 1])),
     'hsla(0, 75%, 25%, 1)'
   );
 
@@ -48,7 +54,7 @@ test('hsl', function(t) {
 
 test('intelligence', function(t) {
   t.equal(
-    css.rgba(nd([0, 0, 255])),
+    css(px('rgba', [0, 0, 255])),
     'rgba(0, 0, 255, 1)'
   );
 
@@ -56,23 +62,22 @@ test('intelligence', function(t) {
 });
 
 test('degenerates', function(t) {
+  t.throws(function () {
+    css(px(null, []))
+  });
+
   t.equal(
-    css.rgba(null),
+    css(px('rgba', [])),
     'rgba(0, 0, 0, 1)'
   );
 
   t.equal(
-    css.rgba(nd([])),
-    'rgba(0, 0, 0, 1)'
-  );
-
-  t.equal(
-    css.rgba(nd([255])),
+    css(px('rgba', [255])),
     'rgba(255, 0, 0, 1)'
   );
 
   t.equal(
-    css.rgba(nd([255, 255])),
+    css(px('rgba', [255, 255])),
     'rgba(255, 255, 0, 1)'
   );
 

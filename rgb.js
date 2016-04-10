@@ -1,8 +1,8 @@
 var genfun = require('generate-function')
 
-var css = genfun()
-  ('function (color) {')
-    ('return "rgb("+ ~~color.get(0) + ", " + ~~color.get(1) + ", " + ~~color.get(2) + ")"')
-  ('}')
+var toCssColor = genfun()
+  ('function (red, green, blue) {')
+    ('return ["rgb(", ~~red, ", ", ~~green, ", ", ~~blue, ")"].join("")')
+  ('}').toFunction()
 
-module.exports = css.toFunction()
+module.exports = toCssColor
